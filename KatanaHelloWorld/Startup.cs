@@ -15,7 +15,7 @@ namespace KatanaHelloWorld
             app.UseHandlerAsync((req, res) =>
             {
                 res.ContentType = "text/plain";
-                return res.WriteAsync("Hello, World!");
+                return res.WriteAsync("Hallo hallo soep soep");
             });
         }
 
