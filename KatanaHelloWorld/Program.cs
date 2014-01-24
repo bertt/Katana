@@ -10,7 +10,12 @@ namespace KatanaHelloWorld
 
             var uri = "http://localhost:8080/";
 
-            using (WebApp.Start<Startup>(uri))
+            var port = 5000;
+            if (args.Length > 0)
+            {
+                int.TryParse(args[0], out port);
+            }
+            using (WebApp.Start<Startup>(string.Format("http://*:{0}", port)))
             {
                 Console.WriteLine("Started");
                 Console.ReadKey();
