@@ -8,7 +8,7 @@ namespace KatanaHelloWorld
     {
         private static ManualResetEvent _quitEvent = new ManualResetEvent(false);
 
-        private static void Main(string[] args)
+        static void Main(string[] args)
         {
             var port = 5000;
             if (args.Length > 0)
