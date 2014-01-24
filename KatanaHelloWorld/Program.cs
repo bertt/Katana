@@ -8,7 +8,7 @@ namespace KatanaHelloWorld
         static void Main(string[] args)
         {
 
-            var uri = "http://localhost:8080/";
+            //var uri = "http://localhost:8080/";
 
             var port = 5000;
             if (args.Length > 0)
