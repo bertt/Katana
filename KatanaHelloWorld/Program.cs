@@ -1,27 +1,30 @@
 ﻿using System;
+using System.Threading;
 using Microsoft.Owin.Hosting;
 
 namespace KatanaHelloWorld
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
+	public class Program
+	{
+		private static ManualResetEvent _quitEvent = new ManualResetEvent(false);
 
-            //var uri = "http://localhost:8080/";
+		static void Main(string[] args)
+		{
+			var port = 5000;
+			if (args.Length > 0)
+			{
+				int.TryParse(args[0], out port);
+			}
 
-            var port = 5000;
-            if (args.Length > 0)
-            {
-                int.TryParse(args[0], out port);
-            }
+			Console.CancelKeyPress += (sender, eArgs) =>
+			{
+				_quitEvent.Set();
+				eArgs.Cancel = true;
+			};
             using (WebApp.Start<Startup>(string.Format("http://*:{0}", port)))
-            {
-                Console.WriteLine("Started");
-                Console.ReadKey();
-                Console.WriteLine("Stopping");
-            }
-
-        }
-    }
+			{
+				Console.WriteLine("Started");
+				_quitEvent.WaitOne();
+			}
+		}
 }
