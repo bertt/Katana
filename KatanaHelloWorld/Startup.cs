@@ -10,14 +10,6 @@ namespace KatanaHelloWorld
         }
 
 
-        public void Configuration(IAppBuilder app)
-        {
-            app.UseHandlerAsync((req, res) =>
-            {
-                res.ContentType = "text/plain";
-                return res.WriteAsync("Hallo hallo soep soep");
-            });
-        }
 
     }
 }
