@@ -1,1 +1,1 @@
-﻿web: mono KatanaHelloWorld.exe $port
+web: mono KatanaHelloWorld.exe $PORT
