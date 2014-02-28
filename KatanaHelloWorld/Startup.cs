@@ -13,11 +13,11 @@ namespace KatanaHelloWorld
 
         public void Configuration(IAppBuilder app)
         {
-            app.UseHandlerAsync((req, res) =>
+            /**app.UseHandlerAsync((req, res) =>
             {
                 res.ContentType = "text/plain";
                 return res.WriteAsync("Hallo bert");
-            });
+            });*/
             var config = new HubConfiguration { EnableCrossDomain = true };
             app.MapHubs(config);
             //app.UseWelcomePage();
