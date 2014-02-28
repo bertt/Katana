@@ -1,4 +1,5 @@
-﻿using Owin;
+﻿using Microsoft.AspNet.SignalR;
+using Owin;
 
 namespace KatanaHelloWorld
 {
@@ -17,6 +18,8 @@ namespace KatanaHelloWorld
                 res.ContentType = "text/plain";
                 return res.WriteAsync("Hallo bert");
             });
+            var config = new HubConfiguration { EnableCrossDomain = true };
+            app.MapHubs(config);
             //app.UseWelcomePage();
         }
 
