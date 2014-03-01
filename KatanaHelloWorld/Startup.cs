@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNet.SignalR;
 using Microsoft.Owin;
 using Microsoft.Owin.Cors;
+using Microsoft.Owin.Hosting;
+using Microsoft.Owin.Mapping;
 using Owin;
 
 namespace KatanaHelloWorld
@@ -23,16 +25,14 @@ namespace KatanaHelloWorld
             var config = new HubConfiguration {  };
             //config.
             // app.MapHubs(config);
-            app.UseWelcomePage();
-
+            //app.UseWelcomePage();
+            app.UseFileServer(true);
             app.Map("/signalr", map =>
             {
                 map.UseCors(CorsOptions.AllowAll);
                 map.RunSignalR(new HubConfiguration { EnableJSONP = true });
             });
-
+            
         }
-
-
     }
 }
