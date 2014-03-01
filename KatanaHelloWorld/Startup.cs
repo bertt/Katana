@@ -14,7 +14,8 @@ namespace KatanaHelloWorld
                 map.UseCors(CorsOptions.AllowAll);
                 map.RunSignalR(new HubConfiguration { EnableJSONP = true });
             });
-            //app.UseWebApi
+            var config = new MyHttpConfiguration();
+            app.UseWebApi(config); 
         }
     }
 }
