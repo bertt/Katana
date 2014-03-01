@@ -2,12 +2,12 @@
 
 namespace KatanaHelloWorld
 {
-    public class MyHub : Hub
+    public class ChatHub : Hub
     {
-        public void Send(string message)
+        public void Send(string name, string message)
         {
-            // iedereen
-            Clients.All.addMessage(message);
+            // Call the broadcastMessage method to update clients.
+            Clients.All.broadcastMessage(name, message);
         }
     }
 }
