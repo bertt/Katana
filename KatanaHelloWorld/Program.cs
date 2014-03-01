@@ -10,7 +10,12 @@ namespace KatanaHelloWorld
 
         static void Main(string[] args)
         {
+            var server="*";
             var port = 5000;
+            #if DEBUG
+                server = "localhost";
+            #endif               
+
             if (args.Length > 0)
             {
                 int.TryParse(args[0], out port);
@@ -21,7 +26,7 @@ namespace KatanaHelloWorld
                 _quitEvent.Set();
                 eArgs.Cancel = true;
             };
-            using (WebApp.Start<Startup>(string.Format("http://*:{0}", port)))
+            using (WebApp.Start<Startup>(string.Format("http://{0}:{1}", server, port)))
             {
                 Console.WriteLine("Started");
                 _quitEvent.WaitOne();
