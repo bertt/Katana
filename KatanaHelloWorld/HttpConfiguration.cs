@@ -4,9 +4,9 @@ using Newtonsoft.Json.Serialization;
 
 namespace KatanaHelloWorld
 {
-    public class MyHttpConfiguration : HttpConfiguration
+    public class WebApiHttpConfiguration : HttpConfiguration
     {
-        public MyHttpConfiguration()
+        public WebApiHttpConfiguration()
         {
             ConfigureRoutes();
             ConfigureJsonSerialization();

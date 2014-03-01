@@ -7,15 +7,8 @@ namespace KatanaHelloWorld
         public void Configuration(IAppBuilder app)
         {
             app.UseFileServer(false);
-
             app.MapSignalR();
-            /**app.Map("/signalr", map =>
-            {
-                map.UseCors(CorsOptions.AllowAll);
-                map.RunSignalR(new HubConfiguration { EnableJSONP = true });
-            });
-             */
-            var config = new MyHttpConfiguration();
+            var config = new WebApiHttpConfiguration();
             app.UseWebApi(config); 
         }
     }
