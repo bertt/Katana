@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.SignalR;
 using Microsoft.Owin;
+using Microsoft.Owin.Cors;
 using Owin;
 
 namespace KatanaHelloWorld
@@ -19,9 +20,17 @@ namespace KatanaHelloWorld
                 res.ContentType = "text/plain";
                 return res.WriteAsync("Hallo bert");
             });*/
-            var config = new HubConfiguration { EnableCrossDomain = true };
+            var config = new HubConfiguration {  };
+            //config.
             // app.MapHubs(config);
             app.UseWelcomePage();
+
+            app.Map("/signalr", map =>
+            {
+                map.UseCors(CorsOptions.AllowAll);
+                map.RunSignalR(new HubConfiguration { EnableJSONP = true });
+            });
+
         }
 
 
