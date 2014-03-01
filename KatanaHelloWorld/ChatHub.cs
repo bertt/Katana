@@ -8,12 +8,6 @@ namespace KatanaHelloWorld
         {
             // iedereen
             Clients.All.addMessage(message);
-            // anderen
-            //Clients.Others.addMessage(message);
-            // caller
-            //Clients.Caller.addMessage(message);
-
-            //var i=Context.User.Identity.Name;
         }
     }
 }
