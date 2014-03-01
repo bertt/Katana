@@ -19,8 +19,8 @@ namespace KatanaHelloWorld
                 return res.WriteAsync("Hallo bert");
             });*/
             var config = new HubConfiguration { EnableCrossDomain = true };
-            app.MapHubs(config);
-            //app.UseWelcomePage();
+            // app.MapHubs(config);
+            app.UseWelcomePage();
         }
 
 
